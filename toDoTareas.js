@@ -19,6 +19,10 @@ function agregarTarea(){
     li.innerHTML = `<span>${textoTarea}</span> 
                         <button class="borrar-btn" onClick="borrarTarea(this)">Eliminar</button>`;
 
+    li.querySelector("span").addEventListener("click", function(){
+        this.parentElement.classList.toggle("completado");
+    })
+
     listadoTarea.appendChild(li);
 
     nuevaTarea.value = "";
@@ -38,3 +42,4 @@ inputNuevaTarea.addEventListener("keypress", function(tecla){
 
     }
 });
+
