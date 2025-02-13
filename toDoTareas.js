@@ -30,3 +30,11 @@ function borrarTarea(elementoTarea){
     elementoTarea.parentElement.remove();
 
 }
+
+const inputNuevaTarea = document.getElementById("nuevaTarea");
+
+inputNuevaTarea.addEventListener("keypress", function(tecla){
+    if(tecla.key === "Enter") { agregarTarea();
+
+    }
+});
