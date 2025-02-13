@@ -24,8 +24,9 @@ function agregarTarea(){
     })
 
     listadoTarea.appendChild(li);
-
+    
     nuevaTarea.value = "";
+    guardarTareasEnLocalStorage();
 
 
 }
@@ -42,4 +43,18 @@ inputNuevaTarea.addEventListener("keypress", function(tecla){
 
     }
 });
+
+function guardarTareasEnLocalStorage() {
+   const tareas =[]; 
+   document.querySelectorAll("li").forEach(tarea => {
+    tareas.push({
+        Nombre_Tarea: tarea.querySelector("span").innerText,
+        Estado_Tarea: tarea.classList.contains("completado")
+    });
+
+   });
+
+   localStorage.setItem("TareasGuardadas", tareas);
+
+}
 
